@@ -1,0 +1,46 @@
+<div class="example-header">
+    <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+    <button mat-button color="accent" class="float-right" (click)="imprimirListado()">Descargar listado</button>
+</div>
+<div class="example-container mat-elevation-z8">
+    <mat-table [dataSource]="dataSource" matSort>
+        <!-- ID Column -->
+        <ng-container matColumnDef="id">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="cif">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> CIF </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.cif}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="nombreCliente">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.nombreCliente}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="dni">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> DNI </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.dni}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="telefono1">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Teléfono </mat-header-cell>
+            <mat-cell *matCellDef="let row" > {{row.telefono1}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="acciones">
+            <mat-header-cell *matHeaderCellDef> Acciones </mat-header-cell>
+            <mat-cell *matCellDef='let row' >
+                <button mat-icon-button color="primary" (click)="editCliente(row.id)">
+                    <mat-icon aria-label="Editar cliente">create</mat-icon>
+                </button>
+                <button mat-icon-button color="warn" (click)="deleteCliente(row.id)">
+                    <mat-icon aria-label="Editar cliente">delete</mat-icon>
+                </button>
+            </mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;">
+        </mat-row>
+    </mat-table>
+    <mat-paginator [pageSizeOptions]="[10, 25, 100]"></mat-paginator>
+</div>

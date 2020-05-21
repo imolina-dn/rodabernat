@@ -1,0 +1,89 @@
+<h2 mat-dialog-title>Editar cliente</h2>
+<mat-dialog-content>
+    <form [formGroup]="editarClienteForm">
+        <div class="row">
+
+            <div class="col-6 mt-3">
+                <label for="id">ID</label>
+                <input id="id" type="text" formControlName="id" class="form-control" disabled>
+            </div>
+            <div class="col-6 mt-3">
+                <label for="fechaAlta">Fecha alta</label>
+                <input id="fechaAlta" type="date" formControlName="fechaAlta" class="form-control">
+            </div>
+            <div class="col-6 mt-3">
+                <label for="cif">CIF</label>
+                <input id="cif" type="text" formControlName="cif" class="form-control">
+            </div>
+            <div class="col-6 mt-3">
+                <label for="tipo">Tipo</label>
+                <select id="tipo" formControlName="tipo" class="form-control">
+                    <option value="">Elige un tipo</option>
+                    <option value="Calas">Calas</option>
+                    <option value="Obras">Obras</option>
+                    <option value="Pueblos">Pueblos</option>
+                </select>
+            </div>
+            <div class="col-12 mt-3">
+                <label for="nombre">Nombre</label>
+                <input id="nombre" type="text" formControlName="nombre" class="form-control">
+            </div>
+            <div class="col-12 mt-3">
+                <label for="razon">Razon social</label>
+                <input id="razon" type="text" formControlName="razon" class="form-control">
+            </div>
+            <div class="col-12 mt-3">
+                <label for="direccion">Dirección</label>
+                <input id="direccion" type="text" formControlName="direccion" class="form-control">
+            </div>
+            <div class="col-12 mt-3">
+                <label for="poblacion">Población</label>
+                <input id="poblacion" type="text" formControlName="poblacion" class="form-control">
+            </div>
+            <div class="col-12 mt-3">
+                <label for="provincia">Provincia</label>
+                <input id="provincia" type="text" formControlName="provincia" class="form-control">
+            </div>
+            <div class="col-6 mt-3">
+                <label for="cpostal">Codigo postal</label>
+                <input id="cpostal" type="text" formControlName="cpostal" class="form-control">
+            </div>
+            <div class="col-6 mt-3">
+                <label for="email">Email</label>
+                <input id="email" type="text" formControlName="email" class="form-control">
+            </div>
+            <div class="col-6 mt-3">
+                <label for="telefono">Teléfono</label>
+                <input id="telefono" type="text" formControlName="telefono" class="form-control">
+            </div>
+            <div class="col-6 mt-3">
+                <label for="movil">Móvil</label>
+                <input id="movil" type="text" formControlName="movil" class="form-control">
+            </div>
+            <div class="col-12 mt-3">
+                <label for="unitram">Uni. tramita.</label>
+                <input id="unitram" type="text" formControlName="unitram" class="form-control">
+            </div>
+            <div class="col-12 mt-3">
+                <label for="orges">Org. gestor</label>
+                <input id="orges" type="text" formControlName="orges" class="form-control">
+            </div>
+            <div class="col-12 mt-3">
+                <label for="ofcont">Ofi. conta.</label>
+                <input id="ofcont" type="text" formControlName="ofcont" class="form-control">
+            </div>
+            <div class="col-12 mt-3">
+                <mat-checkbox formControlName="fav">Favorito</mat-checkbox>
+            </div>
+            <div class="col-12 mt-3">
+                <label for="observaciones">Observaciones</label>
+                <textarea id="observaciones" cols="30" rows="5" formControlName="observaciones" class="form-control"></textarea>
+            </div>
+        </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button mat-dialog-close>Cancelar</button>
+    <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->
+    <button mat-button (click)="editarCliente()">Editar</button>
+  </mat-dialog-actions>
